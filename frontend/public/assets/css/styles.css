@@ -65,6 +65,10 @@ header {
     font-size: 14px;
 }
 
+.descricao {
+    max-width: 150px;
+}
+
 .contentIcons {
     display: flex;
     flex-direction: column;
@@ -186,5 +190,15 @@ header {
 
     .totalTarefas {
         margin-top: 3em;
+    }
+
+    .descricao {
+        max-width: 100% !important;
+    }
+}
+
+@media screen and (min-width: 320) and (max-width: 767px) {
+    .add {
+        display: block;
     }
 }

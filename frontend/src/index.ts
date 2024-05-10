@@ -71,7 +71,7 @@ const exibirTarefas = async () => {
                             <input type="checkbox" name="concluida" id="checkConcluida">
                             <div class="titleDescricao">
                                 <span class="title">${tarefa.title}</span>
-                                <span class="descricao">${tarefa.description}</span>
+                                <span class="descricao text-truncate" style="max-width: 150px;">${tarefa.description}</span>
                             </div>
                         </div>
                         <div class="contentIcons">
