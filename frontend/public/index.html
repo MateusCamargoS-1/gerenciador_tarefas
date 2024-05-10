@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Controle de Despesas</title>
+    <!-- BOOTSTRAP -->
+    <link
+      rel="stylesheet"
+      href="./assets/bootstrap-5.3.3-dist/css/bootstrap.min.css"
+    />
+    <!-- CSS -->
+    <link rel="stylesheet" href="./assets/css/styles.css" />
+  </head>
+  <body>
+    <header class="container">
+      <div class="row">
+        <div class="col-12">
+          <nav class="navbar">
+            <div class="container-fluid d-flex justify-content-center">
+              <a class="navbar-brand h1 title-header" href="#">TaskMaster</a>
+            </div>
+          </nav>
+        </div>
+      </div>
+    </header>
+
+    <main>
+      <div class="container-fluid" id="tarefas-content">
+        <div class="container-fluid" id="tarefas">
+          <div class="row">
+            <div
+              class="col-12 d-flex align-items-center justify-content-between"
+            >
+              <button
+                class="btn btnCriarDesktop mt-3 d-flex align-items-center"
+                type="button"
+                data-bs-toggle="modal"
+                data-bs-target="#staticBackdrop"
+              >
+                <i class="fa-solid fa-plus me-2"></i>Criar Tarefa
+              </button>
+              <p class="totalTarefas">
+                Total tarefas: <span class="numTarefas" id="NumeroTarefas">0</span>
+              </p>
+            </div>
+          </div>
+          <div class="row d-flex flex-column" id="listaTarefas"></div>
+        </div>
+      </div>
+    </main>
+
+    <div class="add">
+      <button
+        type="button"
+        data-bs-toggle="modal"
+        data-bs-target="#staticBackdrop"
+      >
+        <i class="fa-solid fa-circle-plus icon-add"></i>
+      </button>
+    </div>
+
+    <!-- Modal 1 -->
+    <div
+      class="modal fade"
+      id="staticBackdrop"
+      data-bs-backdrop="static"
+      data-bs-keyboard="false"
+      tabindex="-1"
+      aria-labelledby="staticBackdropLabel"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog modal-dialog-centered align-self-center">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h1 class="modal-title fs-5" id="staticBackdropLabel">
+              Criar Tarefa
+            </h1>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+            ></button>
+          </div>
+          <div class="modal-body">
+            <form id="form">
+              <div class="form-floating mb-3">
+                <input
+                  type="text"
+                  placeholder="Titulo da Tarefa"
+                  class="form-control"
+                  id="tituloTarefa"
+                />
+                <label for="tituloTarefa">Titulo da Tarefa</label>
+              </div>
+              <div class="form-floating mb-3">
+                <textarea
+                  class="form-control"
+                  placeholder="Descrição"
+                  id="descricaoTarefa"
+                  style="height: 100px"
+                ></textarea>
+                <label for="descricaoTarefa">Descrição</label>
+              </div>
+            </form>
+          </div>
+          <div class="modal-footer">
+            <button
+              type="button"
+              class="btn btn-secondary"
+              data-bs-dismiss="modal"
+              id="btn-Cancelar"
+            >
+              Cancelar
+            </button>
+            <button type="button" class="btn" id="btn-criar">Criar</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Modal 2 para edição -->
+    <div
+      class="modal fade"
+      id="modalEditar"
+      tabindex="-1"
+      aria-labelledby="exampleModalLabel"
+      aria-hidden="true"
+    >
+      <div
+        class="modal-dialog modal-dialog-centered align-self-center"
+        id="modalDialog"
+      ></div>
+    </div>
+
+    <div class="alert d-none" role="alert" id="alerta"></div>
+
+    <script src="./assets/bootstrap-5.3.3-dist/js/bootstrap.min.js"></script>
+    <script src="https://kit.fontawesome.com/57991f803a.js"></script>
+    <script src="./dist/index.js"></script>
+  </body>
+</html>

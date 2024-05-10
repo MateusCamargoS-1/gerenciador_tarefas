@@ -4,16 +4,15 @@ import { atualizarTarefa, criarTarefa, deletarTarefa, pegarToken, todasTarefas }
 import { validarDadosTarefa, verificarTituloUnico } from '../middleware/validarDadosTarefa';
 
 const router = express.Router();
-const csrfProtection = csurf({ cookie: true });
 
-router.get('/csrf-token', csrfProtection, pegarToken);
+router.get('/csrf-token', pegarToken);
 
 router.get('/tarefas', todasTarefas);
 
-router.post('/tarefa', csrfProtection, validarDadosTarefa, verificarTituloUnico, criarTarefa);
+router.post('/tarefa', validarDadosTarefa, verificarTituloUnico, criarTarefa);
 
-router.put('/tarefa/:id', csrfProtection, validarDadosTarefa, verificarTituloUnico, atualizarTarefa);
+router.put('/tarefa/:id', validarDadosTarefa, verificarTituloUnico, atualizarTarefa);
 
-router.delete('/tarefa/:id', csrfProtection, deletarTarefa);
+router.delete('/tarefa/:id', deletarTarefa);
 
 export default router;

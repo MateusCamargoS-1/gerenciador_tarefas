@@ -2,12 +2,14 @@ FROM node:latest
 
 WORKDIR /app
 
-COPY package.json package-lock.json /app/
+COPY package*.json ./
+COPY nodemon.json ./
+COPY tsconfig.json ./
 
 RUN npm install
 
-COPY . /app/
+COPY ./src ./src
 
 EXPOSE 8080
 
-CMD [ "npm", "dev" ]
+CMD [ "npm", "run", "dev" ]
