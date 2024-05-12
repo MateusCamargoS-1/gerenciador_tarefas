@@ -7,12 +7,12 @@ import rotasTarefas from './routes/rotasTarefa'
 const app = express();
 
 app.use(express.json());
-app.options('*', cors());
 app.use(cors({
-    origin: 'https://gerenciadortarefasmcs.netlify.app/',
+    origin: 'http://localhost:5500',
     methods: ['GET', 'POST', 'DELETE', 'PUT'],
+    allowedHeaders: ['Content-Type'],
+    credentials: true
 }));
-
 
 app.use(cookieParser());
 
