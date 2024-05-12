@@ -35,7 +35,7 @@ const criarTarefa = async (): Promise<void> => {
     };
 
     try {
-        const response = await axios.post<Tarefa>('https://gerenciador-tarefas-1.onrender.com/tarefa', dados, {
+        const response = await axios.post<Tarefa>('http://localhost:8080/tarefa', dados, {
             headers: {
                 'Content-Type': 'application/json',
             },
@@ -56,7 +56,7 @@ const criarTarefa = async (): Promise<void> => {
 
 const exibirTarefas = async () => {
     try {
-        const response = await axios.get<ApiResponse>('https://gerenciador-tarefas-1.onrender.com/tarefas');
+        const response = await axios.get<ApiResponse>('http://localhost:8080/tarefas');
         const tarefas = response.data.data;
         numTarefas.textContent = tarefas.length.toString();
         listaTarefas.innerHTML = '';
@@ -71,7 +71,7 @@ const exibirTarefas = async () => {
                             <input type="checkbox" name="concluida" id="checkConcluida">
                             <div class="titleDescricao">
                                 <span class="title">${tarefa.title}</span>
-                                <span class="descricao text-truncate" style="max-width: 150px;">${tarefa.description}</span>
+                                <span class="descricao " text-truncate" style="max-width: 150px;">${tarefa.description}</span>
                             </div>
                         </div>
                         <div class="contentIcons">
@@ -126,7 +126,7 @@ const exibirTarefas = async () => {
 
 const apagarTarefa = async (id: any) => {
     try {
-        const response = await axios.delete(`https://gerenciador-tarefas-1.onrender.com/tarefa/${id}`);
+        const response = await axios.delete(`http://localhost:8080/tarefa/${id}`);
         if (response.status === 200) {
             exibirAlertSuccess("Tarefa excluída com sucesso.");
             exibirTarefas();
@@ -154,7 +154,7 @@ const atualizarTarefa = async (id: string, editarTitulo: string, editarDescricao
     };
 
     try {
-        const response = await axios.put(`https://gerenciador-tarefas-1.onrender.com/tarefa/${id}`, dados, {
+        const response = await axios.put(`http://localhost:8080/tarefa/${id}`, dados, {
             headers: {
                 'Content-Type': 'application/json',
             },
